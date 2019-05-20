@@ -53,7 +53,6 @@ public class GlobalComponents {
 	@FindBy(id="nav-cart-count")
 	public WebElement uiGlobal_CartItemNumber;
 	
-	
-	
 }
+
 
