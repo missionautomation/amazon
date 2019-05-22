@@ -4,9 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class BrowserSelection {
 	WebDriver driver;
+	
+	@BeforeTest
 	public void getBrowser(String browser) {
 		if(browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
@@ -22,5 +26,10 @@ public class BrowserSelection {
 			driver = new ChromeDriver();
 		}
 		driver.manage().window().maximize();
+	}
+	
+	@AfterTest
+	public void closeBrowser() {
+		driver.quit();
 	}
 }
